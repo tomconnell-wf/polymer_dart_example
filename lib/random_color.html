@@ -1,0 +1,19 @@
+<dom-module is="random-color">
+    <style>
+        .color-box {
+            width: 80%;
+            padding: 10%;
+        }
+    </style>
+    <template>
+        <div class="color-box" style$="[[colorStyle]]">
+            <button on-tap="setRandomColor">
+                Change Background Color
+            </button>
+            <button on-tap="makeRed">
+                Make Background Red
+            </button>
+        </div>
+        <div>It should be <span>[[myColor]]</span>!</div>
+    </template>
+</dom-module>
