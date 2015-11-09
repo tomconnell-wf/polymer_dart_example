@@ -9,15 +9,24 @@
 </head>
 
 <body unresolved>
+  <h4>Random Color picker</h4>
 
-  <button id="api-random-color">Random Color via API</button>
-  <button id="api-purple">Purple via API</button>
-  <div style="margin: 20px 0 20px 0">
-      Current background color: <span id="color-span"></span>
+  <div style="border: 1px solid black; padding: 2px;">
+    Vanilla Dart
+    <button id="api-random-color">Random Color via API</button>
+    <button id="api-purple">Purple via API</button>
+    <div style="margin: 20px 0 20px 0">
+        Current background color: <span id="color-span"></span>
+    </div>
+    Initial state via HTML attribute
+    <random-color my-color="green"></random-color>
   </div>
-  Initial state via HTML attribute
-  <random-color my-color="green"></random-color>
 
+
+  Initial state via React-Dart
+  <div id="random-color-container-react"></div>
+
+  <script src="packages/react/react.js"></script>
   <script type="application/dart" src="index.dart"></script>
   <script src="packages/browser/dart.js"></script>
 </body>

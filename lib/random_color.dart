@@ -32,9 +32,9 @@ class RandomColor extends PolymerElement {
   @reflectable
   void setRandomColor() {
     int max = 16777315;
-    String hexColor =
-        '#' + (new Random().nextDouble() * max).floor().toRadixString(16);
-    set('myColor', hexColor);
+    int hexColor = (new Random().nextDouble() * max).floor();
+    String hexColorWithPaddingHack = (hexColor + 0x1000000).toRadixString(16).substring(1, 7);
+    set('myColor', '#' + hexColorWithPaddingHack);
   }
 
   @reflectable
