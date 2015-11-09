@@ -8,38 +8,37 @@ import 'dart:html';
 
 @PolymerRegister('random-color')
 class RandomColor extends PolymerElement {
-    @Property(notify: true, observer: 'changeColorStyle')
-    String myColor = 'grey';
-    @Property(notify: true)
-    String colorStyle;
+  @Property(notify: true, observer: 'changeColorStyle')
+  String myColor = 'grey';
+  @Property(notify: true)
+  String colorStyle;
 
-    RandomColor.created() : super.created();
+  RandomColor.created() : super.created();
 
-    @reflectable
-    void changeColorStyle(String newColor, String oldColor) {
-        set('colorStyle', 'background-color: ' + newColor);
-    }
+  @reflectable
+  void changeColorStyle(String newColor, String oldColor) {
+    set('colorStyle', 'background-color: ' + newColor);
+  }
 
 //    Could do this instead for less code, but maybe a little more magic.  Reference it in a binding like [[changeColorStyle(myColor)]]
 //    @reflectable
 //    String changeColorStyle(String color) => 'background-color: ' + color;
 
-    @reflectable
-    void setRandomColorByEvent(Event event, Map detail) {
-        setRandomColor();
-    }
+  @reflectable
+  void setRandomColorByEvent(Event event, Map detail) {
+    setRandomColor();
+  }
 
-    @reflectable
-    void setRandomColor() {
-        int max = 16777315;
-        String hexColor = '#' + (new Random().nextDouble() * max).floor().toRadixString(16);
-        set('myColor', hexColor);
-    }
+  @reflectable
+  void setRandomColor() {
+    int max = 16777315;
+    String hexColor =
+        '#' + (new Random().nextDouble() * max).floor().toRadixString(16);
+    set('myColor', hexColor);
+  }
 
-    @reflectable
-    void makeRed(Event event, Map detail) {
-        set('myColor', 'red');
-    }
+  @reflectable
+  void makeRed(Event event, Map detail) {
+    set('myColor', 'red');
+  }
 }
-
-
