@@ -4,6 +4,7 @@ library polymer_dart_example.lib.random_color;
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
 import 'dart:math';
+import 'dart:html';
 
 @PolymerRegister('random-color')
 class RandomColor extends PolymerElement {
@@ -24,7 +25,12 @@ class RandomColor extends PolymerElement {
 //    String changeColorStyle(String color) => 'background-color: ' + color;
 
     @reflectable
-    void setRandomColor(Event event, Map detail) {
+    void setRandomColorByEvent(Event event, Map detail) {
+        setRandomColor();
+    }
+
+    @reflectable
+    void setRandomColor() {
         int max = 16777315;
         String hexColor = '#' + (new Random().nextDouble() * max).floor().toRadixString(16);
         set('myColor', hexColor);
