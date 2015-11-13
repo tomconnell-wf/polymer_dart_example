@@ -19,6 +19,33 @@ class _PolymerComponent extends react.Component {
   }
 }
 
+RandomColor randomColorComponent = null; // Somehow get the element
+
+
+class RandomColorModule extends Module {
+  final String name = 'RandomColorModule';
+
+
+
+  var api = new RandomColorApi();
+  var Store = new RandomColorStore();
+}
+
+class RandomColorApi {
+  void setRandomColor() {
+    RandomColorComponent.setRandomColor();
+  }
+  void makeRend() {
+    RandomColorComponent.makeRed();
+  }
+}
+
+class RandomColorStore extends Store {
+  String get backgroundColor => randomColorComponent.myColor;
+}
+
+
+
 main() async {
   reactClient.setClientConfiguration();
   await initPolymer();
